@@ -17,7 +17,9 @@
             success: function(response) {
               $('#signup').html('<p>Thanks for signing up!</p>');
             }
-          })
+          }).fail(jqXHR) {
+            $('#signup').html('<p>Sorry a ' + jqXHR.statusText + ' error occurred');
+          }
           }); //end post
         }); // end submit
       }); // end ready
