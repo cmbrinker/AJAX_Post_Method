@@ -11,8 +11,13 @@
           evt.preventDefault(); // prevents default navigation away from page
           var url = $(this).attr('action'); // response to sobmit button
           var formData = $(this).serialize(); // captures form data, name and value
-          $.post(url, formData, function() {
-            $('#signup').html("<p>Thanks for signing up!</p>");
+          $.ajax(url, {
+            data : formData,
+            type: "POST",
+            success: function(response) {
+              $('#signup').html('<p>Thanks for signing up!</p>');
+            }
+          })
           }); //end post
         }); // end submit
       }); // end ready
